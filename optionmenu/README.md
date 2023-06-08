@@ -11,9 +11,9 @@ Latest Version Android Studio
 
 ## ALGORITHM:
 
-Step 1: Open Android Stdio and then click on File -> New -> New project.
+Step 1: Open Android Studio and then click on File -> New -> New project.
 
-Step 2: Then type the Application name as “optionmenu″ and click Next.
+Step 2: Then type the Application name as OptionMenu and click Next.
 
 Step 3: Then select the Minimum SDK as shown below and click Next.
 
@@ -21,64 +21,58 @@ Step 4: Then select the Empty Activity and click Next. Finally click Finish.
 
 Step 5: Design layout in activity_main.xml.
 
-Step 6: Design option layout in option.xml.
+Step 6: Create a option.xml file to create options in your menu.
 
-Step 7: Add and Display option menu in MainActivity file.
+Step 7: Display options in MainActivity file.
 
 Step 8: Save and run the application.
+
 
 ## PROGRAM:
 ```
 /*
 Program to print the text “optionmenu”.
-Developed by: Rohit kumar .M
-Registeration Number : 212221220045
+Developed by: Saran S S
+Registeration Number : 212221220048
 */
 ```
+activtity_main.xml:
 
-**Activity_xml File:**
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"/>
+```
+option.xml:
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/amgus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    
-**OPTION XML CODE:**
+```
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/item_1" />
+    <item android:title="@string/item_2" />
+    <item android:title="@string/item_3" />
+</menu>
+```
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="PRIME 1" />
-    <item android:title="PRIME 2" />
-    <item android:title="PRIME 3" />
-    </menu>
+MainActivity.java:
 
-**MainActivity.java File:**
+```
+package com.example.optionmenu;
 
-      package com.example.menuapp;
+import androidx.appcompat.app.AppCompatActivity;
 
-    import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 
-    import android.os.Bundle;
-    import android.view.Menu;
-    import android.view.MenuInflater;
+import com.example.optionmenu.R;
 
-    public class MainActivity extends AppCompatActivity {
-     @Override
+public class MainActivity extends AppCompatActivity {
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -89,13 +83,20 @@ Registeration Number : 212221220045
         m.inflate(R.menu.option,menu);
         return true;
     }
-    }
+}
+```
+## OUTPUT
 
-## OUTPUT:
+![image](https://github.com/kannan0071/MAD-Ex.No-10/assets/119641638/31b526e6-c0b8-4db3-b190-3258743d7f1e)
 
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/91502059-7bfa-400e-b245-bccb7255d188)  
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/40655ae9-d214-4945-b378-947b6b1baf2b)
+![image](https://github.com/kannan0071/MAD-Ex.No-10/assets/119641638/5b0ad7a8-b92f-489b-b221-88bce95e51cf)
 
+![image](https://github.com/kannan0071/MAD-Ex.No-10/assets/119641638/3c21ac8e-18a0-43c0-b79c-1356b42f7e49)
 
-## RESULT:
+![WhatsApp Image 2023-05-25 at 14 13 27](https://github.com/kannan0071/MAD-Ex.No-10/assets/119641638/7d90553e-3990-4621-b5cc-553d19640297)
+
+![WhatsApp Image 2023-05-25 at 14 13 27](https://github.com/kannan0071/MAD-Ex.No-10/assets/119641638/3c257b09-4978-4d41-baff-6214a68e01c8)
+
+## RESULT
 Thus a Simple Android Application to create a option menu to display menu items using Android Studio is developed and executed successfully.
+
