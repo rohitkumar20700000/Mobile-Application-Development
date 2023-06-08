@@ -30,11 +30,11 @@ Step 7: Save and run the application.
 ```
 /*
 Program to create and design an android application that draws basic graphical primitives on the screen.
-Developed by: Rohit kumar .M
+Developed by: Rohit kumar.M
 Registeration Number : 212221220045
 */
 ```
-**Activity_xml File:**
+activity_main.xml:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,19 +45,22 @@ Registeration Number : 212221220045
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView"
         android:layout_width="413dp"
         android:layout_height="736dp"
+        android:contentDescription="@string/nothing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-**MainActivity.java File:**
+MainActivity.java:
 ```
-package com.example.basicgraphics;
+package com.example.basicgraphicalprimitives;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -67,11 +70,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-
-import java.nio.file.Path;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bg = Bitmap.createBitmap(720, 1280, Bitmap.Config.ARGB_8888);
 
         //Setting the Bitmap as background for the ImageView
-        ImageView i = (ImageView) findViewById(R.id.imageView1);
+        ImageView i = (ImageView) findViewById(R.id.imageView);
         i.setBackgroundDrawable(new BitmapDrawable(bg));
 
         //Creating the Canvas Object
@@ -91,16 +90,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Creating the Paint Object and set its color & TextSize
         Paint paint = new Paint();
-        paint.setColor(Color.YELLOW);
+        paint.setColor(Color.BLUE);
         paint.setTextSize(50);
-
-        //To draw a Circle
-        canvas.drawText("Circle", 120, 150, paint);
-        canvas.drawCircle(200, 350, 150, paint);
 
         //To draw a Rectangle
         canvas.drawText("Rectangle", 420, 150, paint);
         canvas.drawRect(400, 200, 650, 700, paint);
+
+        //To draw a Circle
+        canvas.drawText("Circle", 120, 150, paint);
+        canvas.drawCircle(200, 350, 150, paint);
 
         //To draw a Square
         canvas.drawText("Square", 120, 800, paint);
@@ -112,10 +111,15 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-## OUTPUT:
 
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/6a33e271-5d51-4907-a2ec-5bbd1e3f17e7)
+## OUTPUT
 
+![image](https://github.com/kannan0071/MAD-Ex.No-12/assets/119641638/974714ea-21b4-423f-a8d7-17841e02e4e9)
 
-## RESULT:
+![image](https://github.com/kannan0071/MAD-Ex.No-12/assets/119641638/10fd481e-b7fc-4828-935f-09b1893a6b30)
+
+![WhatsApp Image 2023-05-25 at 14 38 32](https://github.com/kannan0071/MAD-Ex.No-12/assets/119641638/af2df282-1792-403e-8d5f-5519db8ad932)
+
+## RESULT
+
 Thus a Simple Android Application to create and design an android application that draws basic graphical primitives on the screen using Android Studio is developed and executed successfully.
