@@ -28,160 +28,282 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text “calculator operation”.
-Developed by: Rohit kumar .M
-Registeration Number : 212221220045
+Developed by: SARAN S S
+Registeration Number : 212221220048
 */
 ```
-**Activity_xml File:**
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+activity_main.xml:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/etNum1"
+        android:id="@+id/txt2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Number 1"
-        android:inputType="numberDecimal" />
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/second_number"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.317"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/etNum2"
+        android:id="@+id/txt1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Number 2"
-        android:inputType="numberDecimal" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#F44336"
-        android:text="Add"
-        android:textColor="#FFFFFF" />
-
-    <Button
-        android:id="@+id/btnSub"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#9C27B0"
-        android:text="Subtract" />
-
-    <Button
-        android:id="@+id/btnMul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFC107"
-        android:text="Multiply" />
-
-    <Button
-        android:id="@+id/btnDiv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:text="Divide" />
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/first_number"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.221"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="match_parent"
+        android:id="@+id/result"
+        android:layout_width="406dp"
+        android:layout_height="56dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+    <Button
+        android:id="@+id/btnsubs"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/subtract"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <Button
+        android:id="@+id/btndiv"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/divide"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.981"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <Button
+        android:id="@+id/btnadd"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/add"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <Button
+        android:id="@+id/btnmult"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/multiply"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Result: "
-        android:textSize="18sp" />
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/simple_calculator"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.073" />
 
-    </LinearLayout>
-    
-**MainActivity.java File:**
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-      package com.example.calculator;
+```
 
-    import androidx.appcompat.app.AppCompatActivity;
+MainActivity.java:
 
-    import android.os.Bundle;
-    import android.view.View;
-    import android.widget.Button;
-    import android.widget.EditText;
-    import android.widget.TextView;
+```
+package com.example.simplecalculator;
 
-    public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    EditText num1, num2;
-    Button btnAdd, btnSub, btnMul, btnDiv;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+    Button btnadd,btnsubs,btnmult,btndiv;
+    EditText txt1,txt2;
     TextView result;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        num1 = findViewById(R.id.etNum1);
-        num2 = findViewById(R.id.etNum2);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnSub = findViewById(R.id.btnSub);
-        btnMul = findViewById(R.id.btnMul);
-        btnDiv = findViewById(R.id.btnDiv);
-        result = findViewById(R.id.tvResult);
+        btnadd=findViewById(R.id.btnadd);
+        btnsubs=findViewById(R.id.btnsubs);
+        btndiv=findViewById(R.id.btndiv);
+        btnmult=findViewById(R.id.btnmult);
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        txt1=findViewById(R.id.txt1);
+        txt2=findViewById(R.id.txt2);
+
+        result=findViewById(R.id.result);
+
+        btnadd.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onClick(View v) {
-                double number1 = Double.parseDouble(num1.getText().toString());
-                double number2 = Double.parseDouble(num2.getText().toString());
-                double sum = number1 + number2;
-                result.setText("Result: " + sum);
+            public void onClick(View view) {
+                // Checking Input First Is Blank Or Not
+                if (txt1.getText().toString().equals("")) {
+                    // Showing Toast (Message)
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                }
+
+                // Both Inputs Are Not Blank , Starting Calculation
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a + b; // Using Third Variable To Store Output Value
+                    result.setText("The Addition Result Is " + c);
+
+                }
+
             }
         });
 
-        btnSub.setOnClickListener(new View.OnClickListener() {
+        btnsubs.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onClick(View v) {
-                double number1 = Double.parseDouble(num1.getText().toString());
-                double number2 = Double.parseDouble(num2.getText().toString());
-                double difference = number1 - number2;
-                result.setText("Result: " + difference);
+            public void onClick(View view) {
+                // Checking Input First Is Blank Or Not
+                if (txt1.getText().toString().equals("")) {
+                    // Showing Toast (Message)
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                }
+
+                // Both Inputs Are Not Blank , Starting Calculation
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a - b; // Using Third Variable To Store Output Value
+                    result.setText("The Subtraction Result Is " + c);
+
+                }
             }
         });
-
-        btnMul.setOnClickListener(new View.OnClickListener() {
+        btnmult.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onClick(View v) {
-                double number1 = Double.parseDouble(num1.getText().toString());
-                double number2 = Double.parseDouble(num2.getText().toString());
-                double product = number1 * number2;
-                result.setText("Result: " + product);
+            public void onClick(View view) {
+                // Checking Input First Is Blank Or Not
+                if (txt1.getText().toString().equals("")) {
+                    // Showing Toast (Message)
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                }
+
+                // Both Inputs Are Not Blank , Starting Calculation
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a*b; // Using Third Variable To Store Output Value
+                    result.setText("The Multiplication Result Is " + c);
+
+                }
             }
         });
-
-        btnDiv.setOnClickListener(new View.OnClickListener() {
+        btndiv.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onClick(View v) {
-                double number1 = Double.parseDouble(num1.getText().toString());
-                double number2 = Double.parseDouble(num2.getText().toString());
-                if (number2 != 0) {
-                    double quotient = number1 / number2;
-                    result.setText("Result: " + quotient);
-                } else {
-                    result.setText("Cannot divide by zero");
+            public void onClick(View view) {
+                // Checking Input First Is Blank Or Not
+                if (txt1.getText().toString().equals("")) {
+                    // Showing Toast (Message)
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+                }
+
+                // Both Inputs Are Not Blank , Starting Calculation
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a/b; // Using Third Variable To Store Output Value
+                    result.setText("The Division Result Is " + c);
+
                 }
             }
         });
     }
-    }
+}
+```
 
-## OUTPUT:
+## OUTPUT
 
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/69775f62-4a24-4351-9d5d-45f256a478fc)
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/6aeeefe8-36b7-47b8-a1f2-703829a9866f)
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/cf49690a-61db-4667-b253-21e032087256)
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/01725cd4-e9c3-47c6-b555-cfeda4a9a406)
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/c6426ad9-8f0a-4506-9b3c-3982c8bfc1f5)
+![image](https://github.com/kannan0071/MAD-Ex.No-9/assets/119641638/d89e8d24-4bcb-4845-a7b9-5610c8a80380)
 
- 
+![image](https://github.com/kannan0071/MAD-Ex.No-9/assets/119641638/47f8bff5-a118-41f9-a2c9-89383ef15bbf)
 
-## RESULT:
+![WhatsApp Image 2023-05-25 at 14 03 22](https://github.com/kannan0071/MAD-Ex.No-9/assets/119641638/cf7c2457-bc16-4c4b-99f8-123c2c99a6cc)
+
+![WhatsApp Image 2023-05-25 at 14 03 24](https://github.com/kannan0071/MAD-Ex.No-9/assets/119641638/510f2e09-e2d5-4831-b89f-3b1c4bfd9f17)
+
+![WhatsApp Image 2023-05-25 at 14 03 21](https://github.com/kannan0071/MAD-Ex.No-9/assets/119641638/e65280db-647e-45c7-bb3f-ba5f049a3a30)
+
+![WhatsApp Image 2023-05-25 at 14 03 21](https://github.com/kannan0071/MAD-Ex.No-9/assets/119641638/06d9f9c5-51a5-45a7-819d-fd62cf307f70)
+
+
+## RESULT
 Thus a Simple Android Application develop a program to create simple calculator in Android Studio is developed and executed successfully.
