@@ -30,17 +30,24 @@ Step 7: Save and run the application.
 ```
 /*
 Program to create and design an android application Send SMS using Intent.
-Developed by: Rohit kumar .M
-Registeration Number : 212221220045
+Developed by: DINESH KUMAR M
+Registeration Number : 212221220011
 */
 ```
-**Android Manifest File:**
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+AndroidManifest.xml:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -48,8 +55,9 @@ Registeration Number : 212221220045
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Smsintent"
+        android:theme="@style/Theme.SMSIntent"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
@@ -61,13 +69,14 @@ Registeration Number : 212221220045
             </intent-filter>
         </activity>
     </application>
+</manifest>
+```
 
-    </manifest>
+activity_main.xml:
 
-**Activity_xml File:**
-    
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -78,92 +87,88 @@ Registeration Number : 212221220045
         android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="180dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
+        android:inputType="phone"
+        android:text="@string/phone_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
 
     <EditText
-        android:id="@+id/text"
+        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
+        android:inputType="text"
+        android:text="@string/type_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number" />
+        app:layout_constraintTop_toBottomOf="@+id/number"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:backgroundTint="#4CAF50"
-        android:text="SEND"
+        android:layout_width="100dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="316dp"
+        android:text="@string/send"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="23dp"
-        android:text="Enter Number:"
-        android:textColor="#F44336"
-        android:textSize="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/number"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/message"
+        app:layout_constraintVertical_bias="0.452" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="46dp"
-        android:text="Enter Message:"
-        android:textColor="#673AB7"
-        android:textSize="36dp"
+        android:text="@string/send_sms"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.161" />
 
-**MainActivity.java File:**
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
 
-    package com.example.smsintent;
+MainActivity.java:
 
-    import androidx.appcompat.app.AppCompatActivity;
+```
+package com.example.smsintent;
 
-    import android.Manifest;
-    import android.annotation.SuppressLint;
-    import android.content.pm.PackageManager;
-    import android.os.Build;
-    import android.os.Bundle;
-    import android.telephony.SmsManager;
-    import android.view.View;
-    import android.widget.Button;
-    import android.widget.EditText;
-    import android.widget.Toast;
-  
-    public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
     private EditText number,message;
     private Button send;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         number = findViewById(R.id.number);
-        message = findViewById(R.id.text);
+        message = findViewById(R.id.message);
         send = findViewById(R.id.send);
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -192,12 +197,19 @@ Registeration Number : 212221220045
             Toast.makeText(this,"Failed to send message",Toast.LENGTH_SHORT).show();
         }
     }
-    }
+}
+```
 
-## OUTPUT:
-  
-![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/43ba6ed5-2ead-431a-8861-863f52a8105d)  
-![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/63af711e-e4ca-40ff-8838-389dccfb59dd)  
+## OUTPUT
 
-## RESULT:
+![image](https://github.com/kannan0071/MAD-Ex.No-6/assets/119641638/c1b12212-012f-4a17-b53c-69b75b73eb8d)
+
+![image](https://github.com/kannan0071/MAD-Ex.No-6/assets/119641638/dac26bed-538f-4989-ac0a-aa6c2ed9bce5)
+
+![image](https://github.com/kannan0071/MAD-Ex.No-6/assets/119641638/8d296130-6937-4e50-8825-23bfea09dadd)
+
+![sms intent](https://github.com/kannan0071/MAD-Ex.No-6/assets/119641638/f6033989-1aab-424d-bbdf-b5bbf6e00bd7)
+
+
+## RESULT
 Thus a Simple Android Application create and design an android application Send SMS using Intent using Android Studio is developed and executed successfully.
