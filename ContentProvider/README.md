@@ -30,71 +30,92 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text create your own content providers to get contacts details.
-Developed by: Rohit kumar .M
-Registeration Number : 212221220045
+Developed by: SARAN S S
+Registeration Number : 212221220048
 */
 ```
-**Activity_xml File:**
-    
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+AndroidManifest.xml:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Contentprovider"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+```
+
+activity_main.xml:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="302dp"
-        android:text="GET CONTACTS"
         android:onClick="btnGetContactPressed"
+        android:text="@string/get_contacts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    
-**MainActivity.java File:**
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+MainActvity.java:
 
-    package com.example.contactsgetter;
-
-    import androidx.appcompat.app.AppCompatActivity;
-    import androidx.core.app.ActivityCompat;
-    import androidx.core.content.ContextCompat;
-
-    import android.Manifest;
-    import android.annotation.SuppressLint;
-    import android.content.ContentResolver;
-    import android.content.pm.PackageManager;
-    import android.database.Cursor;
-    import android.net.Uri;
-    import android.os.Bundle;
-    import android.provider.ContactsContract;
-    import android.util.Log;
-    import android.view.View;
-
-
-    public class MainActivity extends AppCompatActivity {
-
+```
+package com.example.contentprovider;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
+import android.view.View;
+import android.Manifest;
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-    //        Button show = (Button) findViewById(R.id.button2);
-    //        show.setOnClickListener(view->
-    //        {
-    //            getPhoneContacts();
-    //        });
-
+//        Button show = (Button) findViewById(R.id.button2);
+//        show.setOnClickListener(view->
+//        {
+//            getPhoneContacts();
+//        });
     }
     private void getPhoneContacts(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.READ_CONTACTS},0);
-
         }
         ContentResolver contentResolver = getContentResolver();
         Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
@@ -107,24 +128,26 @@ Registeration Number : 212221220045
                 @SuppressLint("Range") String contactNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                 Log.i("Content_provider_demo","Name: # "+contactName+"Number: # "+contactNumber);
             }
-
         }
     }
-
     public void btnGetContactPressed(View view) {
         getPhoneContacts();
     }
-    }
+}
+```
+## OUTPUT
+
+![image](https://github.com/kannan0071/MAD-Ex.No-5/assets/119641638/11a53807-3225-4d7b-a5ca-6c611e750438)
+
+![image](https://github.com/kannan0071/MAD-Ex.No-5/assets/119641638/ba23156d-0d19-4be6-a635-7d5528ccac19)
+
+![Screenshot 2023-05-27 141008](https://github.com/kannan0071/MAD-Ex.No-5/assets/119641638/800ce4d6-2d7d-410a-9da9-25058503215d)
+
+![WhatsApp Image 2023-05-27 at 13 58 20](https://github.com/kannan0071/MAD-Ex.No-5/assets/119641638/53fb45ef-ba56-46d2-b24d-4cb5e4c33b96)
+
+![WhatsApp Image 2023-05-27 at 14 04 22](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/07ea2207-a2d8-494d-b9e3-e579f308a3d1)
 
 
 
-## OUTPUT:
-
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/4a0841f5-f6a5-45e9-ab99-24d1eaea43f5)
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/9c4091dd-5a39-4d31-84ed-83f8e49f0558)
-![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/07ea2207-a2d8-494d-b9e3-e579f308a3d1)
-
-
-
-## RESULT:
+## RESULT
 Thus a Simple Android Application create your own content providers to get contacts details using Android Studio is developed and executed successfully.
