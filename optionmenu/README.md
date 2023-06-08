@@ -32,8 +32,8 @@ Step 8: Save and run the application.
 ```
 /*
 Program to print the text “optionmenu”.
-Developed by: Saran S S
-Registeration Number : 212221220048
+Developed by: Rohit kumar.M
+Registeration Number : 212221220045
 */
 ```
 activtity_main.xml:
