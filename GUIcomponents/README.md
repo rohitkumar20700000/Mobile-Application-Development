@@ -1,6 +1,5 @@
-# Ex.No: 2 To develop an application that uses GUI Components with Fonts and Colors. 
-Note: Create button for colors and fonts while clicking color or font button should change 
 
+# Ex.No: 2 To develop an application that uses GUI Components with Fonts and Colors. 
 
 ## AIM:
 
@@ -12,104 +11,144 @@ Latest Version Android Studio
 
 ## ALGORITHM:
 
+Step 1: Open Android Stdio and then click on File -> New -> New project.
+
+Step 2: Then type the Application name as HelloWorld and click Next. 
+
+Step 3: Then select the Minimum SDK as shown below and click Next.
+
+Step 4: Then select the Empty Activity and click Next. Finally click Finish.
+
+Step 5: Design layout in activity_main.xml.
+
+Step 6: Display message give in MainActivity file.
+
+Step 7: Save and run the application.
 
 ## PROGRAM:
 ```
 /*
 Program to print the text “GUIcomponent”.
-Developed by: Rohit kumar.M
+Developed by: ROHIT KUMAR M
 Registeration Number :212221220045
 */
 ```
-## activity_main.xml:
-```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 				
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366" />
+**Activity_xml File:**
+    
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".MainActivity">
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/colbut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Front"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="#FFC107"
+        android:text="Change Color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/fonbut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#FF5722"
+        android:text="Change Font"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-## MainActivity.java:
-```
-package com.example.mad_exp2;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-public class MainActivity extends AppCompatActivity {
-    private Button changeFontButton , b2;
+        app:layout_constraintTop_toBottomOf="@+id/colbut" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="152dp"
+        android:text="PRIME PLAYS"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fonbut" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        
+**MainActivity.java File:**
+    
+    package com.example.guicomps;
+
+    import androidx.appcompat.app.AppCompatActivity;
+
+    import android.content.res.AssetManager;
+    import android.graphics.Color;
+    import android.graphics.Typeface;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.TextView;
+
+    import java.io.IOException;
+    import java.io.InputStream;
+
+    public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     private TextView textView;
+    private Button colorButton;
+    private Button fontButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        changeFontButton = findViewById(R.id.button);
-        b2 = findViewById(R.id.button2);
-        textView = findViewById(R.id.textview);
-        changeFontButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                // Change font style
-                textView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
-            }
-        });
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                textView.setTextColor(getResources().getColor(R.color.purple_700));
-            }
-        });
+
+        textView = findViewById(R.id.textView);
+        colorButton = findViewById(R.id.colbut);
+        fontButton = findViewById(R.id.fonbut);
+
+        colorButton.setOnClickListener(this);
+        fontButton.setOnClickListener(this);
     }
-}
-```
-## OUTPUT
 
-![image](https://github.com/Sudhar2303/Mobile-Application-Development/assets/133684710/7725363a-79ce-423c-b756-aa5ef35a556e)
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.colbut:
+                changeTextColor();
+                break;
+            case R.id.fonbut:
+                changeFont();
+                break;
+        }
+    }
 
-![image](https://github.com/Sudhar2303/Mobile-Application-Development/assets/133684710/63d7a5b4-e726-452e-bc57-8df437f25dbe)
+    private void changeTextColor() {
+        int randomColor = generateRandomColor();
+        textView.setTextColor(randomColor);
+    }
 
-![image](https://github.com/Sudhar2303/Mobile-Application-Development/assets/133684710/c4cd9196-5b6f-4d27-9326-261f4e4a8c44)
+    private void changeFont() {
+        Typeface newFont = Typeface.createFromAsset(getAssets(), "font/pacifico.ttf");
+        textView.setTypeface(newFont);
+    }
 
-![Screenshot 2023-05-30 221617](https://github.com/Sudhar2303/Mobile-Application-Development/assets/133684710/54f9ae01-90d5-4b77-993c-0915b0b9d79e)
+    private int generateRandomColor() {
+        int red = (int) (Math.random() * 256);
+        int green = (int) (Math.random() * 256);
+        int blue = (int) (Math.random() * 256);
+        return Color.rgb(red, green, blue);
+    }
+    }
 
-## RESULT
+
+## OUTPUT:
+   
+  ![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/59eccc13-90e9-4e0c-9360-6007c82ee610)  
+  ![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/8dc521e7-3138-444e-a108-58762564cce0)
+
+## RESULT:
 Thus a Simple Android Application that uses GUI Components with Fonts and Colors using Android Studio is developed and executed successfully.
