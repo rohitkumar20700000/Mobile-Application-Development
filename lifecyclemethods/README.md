@@ -24,7 +24,7 @@ Program to print the text “Hello World”.
 Developed by : ROHIT KUMAR M
 Registration Number : 212221220045
 ```
-```
+
 ## activity_main.xml :
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".MainActivity">
