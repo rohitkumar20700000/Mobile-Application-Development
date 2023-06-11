@@ -119,28 +119,13 @@ protected void onDestroy(){
 }
 ```
 
-## OUTPUT:
+## OUTPUT
+![image](https://github.com/VarshaRajesh28/Mobile-Application-Development/assets/133751395/f59462db-5121-43a5-9491-1acc7c28caa7)
+![image](https://github.com/VarshaRajesh28/Mobile-Application-Development/assets/133751395/9a4b055a-219b-4b02-b551-10754997be8d)
+![image](https://github.com/VarshaRajesh28/Mobile-Application-Development/assets/133751395/7fa0cbb6-8362-431c-871a-e8f1002af19f)
+![image](https://github.com/VarshaRajesh28/Mobile-Application-Development/assets/133751395/d0e43dee-472c-4d78-8126-ac09cec3fca6)
+![image](https://github.com/VarshaRajesh28/Mobile-Application-Development/assets/133751395/5f1acbe0-c626-4db1-89f3-5815925a9b28)
+![image](https://github.com/VarshaRajesh28/Mobile-Application-Development/assets/133751395/09149a11-4c6e-42ce-af94-cbc20a16976d)
 
-## onStart()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/3858cc64-15b0-4be2-8425-a178ddbb5fb4)
-
-## onCreate()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/8431d341-58ea-4630-aaef-509be30ff2b1)
-
-## onRestart()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/533a3bf4-7a74-437b-817f-f542b0f2b6cc)
-
-## onPause()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/efedec58-6dd0-4c5f-8a0f-ad7a3f64c217)
-
-## onResume()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/a18e8568-7622-4e23-8458-16889c617ab3)
-
-## onDestroy()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/9171418f-4bcf-4e7a-b560-9c5b97b54d31)
-
-## onStop()
-![image](https://github.com/nithish143257/Mobile-Application-Development/assets/113762839/6b5bea50-1a8d-4666-b650-724ad9633c70)
-
-## RESULT:
+## RESULT
 Thus a Simple Android Application create a HelloWorld Activity using all lifecycles methods to display messages using Android Studio is developed and executed successfully.
